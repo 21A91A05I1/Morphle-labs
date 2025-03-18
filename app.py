@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/htop')
 def htop():
-    username = os.getlogin()
+    username = os.environ.get('USER') or os.environ.get('USERNAME')
 
     ist = pytz.timezone('Asia/Kolkata')
     now_ist = datetime.datetime.now(ist)
